@@ -5,7 +5,7 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
-import { Home, CalendarDays, Clock, Users, Settings, HelpCircle, LogOut, Menu, X } from "lucide-react"
+import { Home, CalendarDays, Clock, Users, Settings, HelpCircle, LogOut, Menu, X, Globe } from "lucide-react"
 
 const navItems = [
   {
@@ -28,6 +28,7 @@ const navItems = [
 export function Sidebar() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [selectedLanguage, setSelectedLanguage] = useState("en")
   
   // Close mobile menu when route changes
   useEffect(() => {
@@ -97,8 +98,63 @@ export function Sidebar() {
             <span>{item.name}</span>
           </Link>
         ))}
+        
+        {/* Language Selector - Hairline separator */}
+        <div className="mt-2 pt-2 border-t border-gray-200">
+          <div className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-700">
+            <Globe className="h-4 w-4" />
+            <span>Language</span>
+          </div>
+          <div className="flex justify-center space-x-3 px-3 mt-1">
+            <button
+              onClick={() => setSelectedLanguage("en")}
+              className={cn(
+                "text-2xl rounded p-1 transition-all",
+                selectedLanguage === "en" ? "ring-2 ring-[#b08d4c] ring-offset-1 bg-gray-100" : "hover:bg-gray-100"
+              )}
+              aria-label="English"
+              title="English"
+            >
+              🇬🇧
+            </button>
+            <button
+              onClick={() => setSelectedLanguage("lo")}
+              className={cn(
+                "text-2xl rounded p-1 transition-all",
+                selectedLanguage === "lo" ? "ring-2 ring-[#b08d4c] ring-offset-1 bg-gray-100" : "hover:bg-gray-100"
+              )}
+              aria-label="Lao"
+              title="ລາວ (Lao)"
+            >
+              🇱🇦
+            </button>
+            <button
+              onClick={() => setSelectedLanguage("ko")}
+              className={cn(
+                "text-2xl rounded p-1 transition-all",
+                selectedLanguage === "ko" ? "ring-2 ring-[#b08d4c] ring-offset-1 bg-gray-100" : "hover:bg-gray-100"
+              )}
+              aria-label="Korean"
+              title="한국어 (Korean)"
+            >
+              🇰🇷
+            </button>
+            <button
+              onClick={() => setSelectedLanguage("zh")}
+              className={cn(
+                "text-2xl rounded p-1 transition-all",
+                selectedLanguage === "zh" ? "ring-2 ring-[#b08d4c] ring-offset-1 bg-gray-100" : "hover:bg-gray-100"
+              )}
+              aria-label="Chinese"
+              title="中文 (Chinese)"
+            >
+              🇨🇳
+            </button>
+          </div>
+        </div>
       </nav>
 
+      {/* Logout Button */}
       <div className="p-4 border-t border-gray-200">
         <Link
           href="/logout"

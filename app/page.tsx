@@ -15,10 +15,6 @@ export default function Home() {
           <h1 className="text-2xl font-bold text-gray-900">Manee Golf Simulator</h1>
           <p className="text-gray-500 mt-1">Book and manage your premium golf simulator sessions</p>
         </div>
-        <Button className="bg-[#b08d4c] hover:bg-[#9a7b3e]">
-          <Plus className="h-4 w-4 mr-2" />
-          New Booking
-        </Button>
       </div>
 
       <div className="mb-8 relative w-full h-[300px] rounded-xl overflow-hidden">

@@ -21,10 +21,6 @@ export default function AdminPage() {
             <Settings className="h-4 w-4 mr-2" />
             Settings
           </Button>
-          <Button className="bg-[#b08d4c] hover:bg-[#9a7b3e]">
-            <Plus className="h-4 w-4 mr-2" />
-            New Booking
-          </Button>
         </div>
       </div>
 
