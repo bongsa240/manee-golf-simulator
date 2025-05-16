@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <div className="flex min-h-screen">
             <Sidebar />
-            <div className="flex-1">{children}</div>
+            <div className="flex-1 md:pt-0 pt-16">{children}</div>
           </div>
         </ThemeProvider>
       </body>
